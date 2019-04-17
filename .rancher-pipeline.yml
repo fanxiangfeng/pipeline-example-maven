@@ -3,5 +3,5 @@ stages:
   steps:
   - runScriptConfig:
       image: maven:3-jdk-7
-      shellScript: hello
+      shellScript: ehco hello
 notification: {}
