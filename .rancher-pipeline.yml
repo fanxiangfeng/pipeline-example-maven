@@ -8,5 +8,5 @@ stages:
   steps:
   - runScriptConfig:
       image: java:8
-      shellScript: echo pwd
+      shellScript: pwd
 notification: {}
