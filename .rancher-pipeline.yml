@@ -3,7 +3,7 @@ stages:
   steps:
   - runScriptConfig:
       image: maven:3-jdk-7
-      shellScript: echo hello
+      shellScript: echo hello world
 - name: 质量测试
   steps:
   - runScriptConfig:
