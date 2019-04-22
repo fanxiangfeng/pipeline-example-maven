@@ -3,10 +3,15 @@ stages:
   steps:
   - runScriptConfig:
       image: maven:3-jdk-7
-      shellScript: echo hello world
-- name: 质量测试
-  steps:
-  - runScriptConfig:
-      image: java:8
-      shellScript: pwd
+      shellScript: |-
+        mvn clean install org.sonarsource.scanner.maven:sonar-maven-plugin:3.5.0.1254:sonar \
+        -Dsonar.host.url=${SONAR_HOST} \
+        -Dsonar.login=${SONAR_KEY}
+    envFrom:
+    - sourceName: sonar
+      sourceKey: token
+      targetKey: SONAR_KEY
+    - sourceName: sonar
+      sourceKey: url
+      targetKey: SONAR_HOST
 notification: {}
